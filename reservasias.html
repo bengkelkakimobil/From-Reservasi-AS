@@ -156,73 +156,40 @@
         const subdistrictsByCity = {
             "banyumas": ["Ajibarang","Banyumas","Baturraden","Cilongok","Gumelar","Jatilawang","Kalibagor","Karanglewas","Kebasen","Kedung Banteng","Kembaran","Kemranjen","Lumbir","Patikraja","Pekuncen","Purwojati","Purwokerto Barat","Purwokerto Selatan","Purwokerto Timur","Purwokerto Utara","Rawalo","Sokaraja","Somagede","Sumbang","Sumpiuh","Tambak","Wangon"],
             // Tambahkan data kecamatan lainnya di sini
-            "banjarnegara": ["Banjarmangu","Banjarnegara","Batur","Bawang","Kalibening","Karangkobar","Madukara","Mandiraja","Pagedongan","Pagentan","Pandanarum","Pejawaran","Punggelan","Purwonegoro","Purworejo Klampok","Rakit","Sigaluh","Susukan","Wanadadi","Wanayasa"
-            ],
-            "batang" : ["Bandar","Banyuputih","Batang","Bawang","Blado","Gringsing","Kandeman","Limpung","Pecalungan","Reban","Subah","Tersono","Tulis","Warungasem","Wonotunggal"
-            ],             
-            "blora" :["Banjarejo","Blora kota","Bogorejo","Cepu","Japah","Jati","Jepon","Jiken","Kedungtuban","Kradenan","Kunduran","Ngawen","Randublatung","Sambong","Todanan","Tunjungan"
-            ],            
-            "boyolali" :["Ampel","Andong","Banyudono","Boyolali","Cepogo","Juwangi","Karanggede","Kemusu","Klego","Mojosongo","Musuk","Ngemplak","Nogosari","Sambi","Sawit","Selo","Simo","Teras","Wonosegoro"
-            ], 
-            "brebes" : ["Banjarharjo","Bantarkawung","Brebes","Bulakamba","Bumiayu","Jatibarang","Kersana","Ketanggungan","Larangan","Losari","Paguyangan","Salem","Sirampog","Songgom","Tanjung","Tonjong","Wanasari"
-            ], 
-            "cilacap" :["Adipala","Bantarsari","Binangun","Cilacap Selatan","Cilacap Tengah","Cilacap Utara","Cimanggu","Cipari","Dayeuhluhur","Gandrungmangu","Jeruklegi","Kampung Laut","Karangpucung","Kawunganten","Kedungreja","Kesugihan","Kroya","Majenang","Maos","Nusawungu","Patimuan","Sampang","Sidareja","Wanareja"
-            ],
-            "demak":["Bonang","Demak","Dempet","Gajah","Guntur","Karang Tengah","Karanganyar","Karangawen","Kebonagung","Mijen","Mranggen","Sayung","Wedung","Wonosalam"
-            ], 
-            "grobogan":["Brati","Gabus","Geyer","Godong","Grobogan","Gubug","Karangrayung","Kedungjati","Klambu","Kradenan","Ngaringan","Penawangan","Pulokulon","Purwodadi","Tanggungharjo","Tawangharjo","Tegowanu","Toroh","Wirosari"
-            ], 
-            "jepara": ["Bangsri", "Batealit", "Donorojo", "Jepara", "Kalinyamatan", "Karimunjawa", "Kedung", "Keling", "Kembang", "Mayong", "Mlonggo", "Nalumsari", "Pakis Aji", "Pecangaan", "Tahunan", "Welahan"
-            ],
-            "karanganyar": ["Colomadu", "Gondangrejo", "Jaten", "Jatipuro", "Jatiyoso", "Jenawi", "Jumantono", "Jumapolo", "Karanganyar", "Karangpandan", "Kebakkramat", "Matesih", "Mojogedang", "Ngargoyoso", "Tasikmadu", "Tawangmangu"
-            ],
-            "kebumen": ["Adimulyo", "Alian", "Ambal", "Ayah", "Bonorowo", "Buayan", "Buluspesantren", "Gombong", "Karanganyar", "Karanggayam", "Karangsambung", "Kebumen", "Klirong", "Kutowinangun", "Kuwarasan", "Mirit", "Padureso", "Pejagoan", "Petanahan", "Poncowarno", "Prembun", "Puring", "Rowokele", "Sadang", "Sempor", "Sruweng"
-            ],
-            "kendal": ["Boja", "Brangsong", "Cepiring", "Gemuh", "Kaliwungu", "Kaliwungu Selatan", "Kangkung", "Kendal", "Limbangan", "Ngampel", "Pageruyung", "Patean", "Patebon", "Pegandon", "Plantungan", "Ringinarum", "Rowosari", "Singorojo", "Sukorejo", "Weleri" 
-            ],
-            "klaten": ["Bayat", "Cawas", "Ceper", "Delanggu", "Gantiwarno", "Jatinom", "Jogonalan", "Kalikotes", "Karanganom", "Karangdowo", "Karangnongko", "Kebonarum", "Kemalang", "Klaten Selatan", "Klaten Tengah", "Klaten Utara", "Manisrenggo", "Ngawen", "Pedan", "Polanharjo", "Prambanan", "Trucuk", "Tulung", "Wedi"
-            ],
-            "kudus": ["Bae", "Dawe", "Gebog", "Jati", "Jekulo", "Kaliwungu", "Kudus", "Mejobo", "Undaan"
-            ],
-            "magelang": ["Bandongan", "Borobudur", "Candimulyo", "Dukun", "Grabag", "Kajoran", "Kaliangkrik", "Mertoyudan", "Mungkid", "Muntilan", "Ngablak", "Ngluwar", "Pakis", "Salam", "Salaman", "Sawangan", "Secang", "Srumbung", "Tegalrejo", "Tempuran", "Windusari"
-            ],
-            "pati": ["Batangan", "Cluwak", "Dukuhseti", "Gabus", "Gembong", "Gunungwungkal", "Jaken", "Jakenan", "Juwana", "Kayen", "Margorejo", "Margoyoso", "Pati", "Pucakwangi", "Sukolilo", "Tambakromo", "Tayu", "Tlogowungu", "Trangkil", "Wedarijaksa", "Winong"
-            ],
+            "banjarnegara": ["Banjarmangu","Banjarnegara","Batur","Bawang","Kalibening","Karangkobar","Madukara","Mandiraja","Pagedongan","Pagentan","Pandanarum","Pejawaran","Punggelan","Purwonegoro","Purworejo Klampok","Rakit","Sigaluh","Susukan","Wanadadi","Wanayasa"],
+            "batang" : ["Bandar","Banyuputih","Batang","Bawang","Blado","Gringsing","Kandeman","Limpung","Pecalungan","Reban","Subah","Tersono","Tulis","Warungasem","Wonotunggal"],             
+            "blora" :["Banjarejo","Blora kota","Bogorejo","Cepu","Japah","Jati","Jepon","Jiken","Kedungtuban","Kradenan","Kunduran","Ngawen","Randublatung","Sambong","Todanan","Tunjungan"],            
+            "boyolali" :["Ampel","Andong","Banyudono","Boyolali","Cepogo","Juwangi","Karanggede","Kemusu","Klego","Mojosongo","Musuk","Ngemplak","Nogosari","Sambi","Sawit","Selo","Simo","Teras","Wonosegoro"], 
+            "brebes" : ["Banjarharjo","Bantarkawung","Brebes","Bulakamba","Bumiayu","Jatibarang","Kersana","Ketanggungan","Larangan","Losari","Paguyangan","Salem","Sirampog","Songgom","Tanjung","Tonjong","Wanasari"], 
+            "cilacap" :["Adipala","Bantarsari","Binangun","Cilacap Selatan","Cilacap Tengah","Cilacap Utara","Cimanggu","Cipari","Dayeuhluhur","Gandrungmangu","Jeruklegi","Kampung Laut","Karangpucung","Kawunganten","Kedungreja","Kesugihan","Kroya","Majenang","Maos","Nusawungu","Patimuan","Sampang","Sidareja","Wanareja"],
+            "demak":["Bonang","Demak","Dempet","Gajah","Guntur","Karang Tengah","Karanganyar","Karangawen","Kebonagung","Mijen","Mranggen","Sayung","Wedung","Wonosalam"], 
+            "grobogan":["Brati","Gabus","Geyer","Godong","Grobogan","Gubug","Karangrayung","Kedungjati","Klambu","Kradenan","Ngaringan","Penawangan","Pulokulon","Purwodadi","Tanggungharjo","Tawangharjo","Tegowanu","Toroh","Wirosari"], 
+            "jepara": ["Bangsri", "Batealit", "Donorojo", "Jepara", "Kalinyamatan", "Karimunjawa", "Kedung", "Keling", "Kembang", "Mayong", "Mlonggo", "Nalumsari", "Pakis Aji", "Pecangaan", "Tahunan", "Welahan"],
+            "karanganyar": ["Colomadu", "Gondangrejo", "Jaten", "Jatipuro", "Jatiyoso", "Jenawi", "Jumantono", "Jumapolo", "Karanganyar", "Karangpandan", "Kebakkramat", "Matesih", "Mojogedang", "Ngargoyoso", "Tasikmadu", "Tawangmangu"],
+            "kebumen": ["Adimulyo", "Alian", "Ambal", "Ayah", "Bonorowo", "Buayan", "Buluspesantren", "Gombong", "Karanganyar", "Karanggayam", "Karangsambung", "Kebumen", "Klirong", "Kutowinangun", "Kuwarasan", "Mirit", "Padureso", "Pejagoan", "Petanahan", "Poncowarno", "Prembun", "Puring", "Rowokele", "Sadang", "Sempor", "Sruweng"],
+            "kendal": ["Boja", "Brangsong", "Cepiring", "Gemuh", "Kaliwungu", "Kaliwungu Selatan", "Kangkung", "Kendal", "Limbangan", "Ngampel", "Pageruyung", "Patean", "Patebon", "Pegandon", "Plantungan", "Ringinarum", "Rowosari", "Singorojo", "Sukorejo", "Weleri" ],
+            "klaten": ["Bayat", "Cawas", "Ceper", "Delanggu", "Gantiwarno", "Jatinom", "Jogonalan", "Kalikotes", "Karanganom", "Karangdowo", "Karangnongko", "Kebonarum", "Kemalang", "Klaten Selatan", "Klaten Tengah", "Klaten Utara", "Manisrenggo", "Ngawen", "Pedan", "Polanharjo", "Prambanan", "Trucuk", "Tulung", "Wedi"],
+            "kudus": ["Bae", "Dawe", "Gebog", "Jati", "Jekulo", "Kaliwungu", "Kudus", "Mejobo", "Undaan"],
+            "magelang": ["Bandongan", "Borobudur", "Candimulyo", "Dukun", "Grabag", "Kajoran", "Kaliangkrik", "Mertoyudan", "Mungkid", "Muntilan", "Ngablak", "Ngluwar", "Pakis", "Salam", "Salaman", "Sawangan", "Secang", "Srumbung", "Tegalrejo", "Tempuran", "Windusari"],
+            "pati": ["Batangan", "Cluwak", "Dukuhseti", "Gabus", "Gembong", "Gunungwungkal", "Jaken", "Jakenan", "Juwana", "Kayen", "Margorejo", "Margoyoso", "Pati", "Pucakwangi", "Sukolilo", "Tambakromo", "Tayu", "Tlogowungu", "Trangkil", "Wedarijaksa", "Winong"],
             "pekalongan": ["Bojong", "Buaran", "Doro", "Kajen", "Karanganyar", "Karangdadap", "Kedungwuni", "Kesesi", "Lebakbarang", "Paninggaran", "Petungkriono", "Siwalan", "Sragi", "Talun", "Tirto", "Wiradesa", "Wonokerto", "Wonopringgo"
-            ],"pemalang": ["Ampelgading", "Bantarbolang", "Belik", "Bodeh", "Comal", "Moga", "Pemalang", "Petarukan", "Pulosari", "Randudongkal", "Taman", "Ulujami", "Warungpring", "Watukumpul"
-            ],
-            "purbalingga": ["Bojongsari", "Bukateja", "Kaligondang", "Kalimanah", "Karanganyar", "Karangjambu", "Karangmoncol", "Karangreja", "Kejobong", "Kemangkon", "Kertanegara", "Kutawis", "Mrebet", "Padamara", "Pengadegan", "Purbalingga", "Rembang"
-            ],
-            "purworejo": ["Bagelen", "Banyuurip", "Bayan", "Bener", "Bruno", "Butuh", "Gebang", "Grabag", "Kaligesing", "Kemiri", "Kutoarjo", "Loano", "Ngombol", "Pituruh", "Purwodadi", "Purworejo"
-            ],
-            "rembang": ["Bulu", "Gunem", "Kaliori", "Kragan", "Lasem", "Pamotan", "Pancur", "Rembang", "Sale", "Sarang", "Sedan", "Sluke", "Sulang", "Sumber"
-            ],
-            "semarang": ["Ambarawa", "Bancak", "Bandungan", "Banyubiru", "Bawen", "Bergas", "Bringin", "Getasan", "Jambu", "Kaliwungu", "Pabelan", "Pringapus", "Sumowono", "Suruh", "Susukan", "Tengaran", "Tuntang", "Ungaran Barat", "Ungaran Timur"
-            ],
-            "sragen": ["Gemolong", "Gesi", "Gondang", "Jenar", "Kalijambe", "Karangmalang", "Kedawung", "Masaran", "Miri", "Mondokan", "Ngrampal", "Plupuh", "Sambirejo", "Sambungmacan", "Sidoharjo", "Sragen", "Sukodono", "Tangen", "Tanon"
-    ],
-    "sukoharjo": ["Baki", "Bendosari", "Bulu", "Gatak", "Grogol", "Kartasura", "Mojolaban", "Nguter", "Polokarto", "Sukoharjo", "Tawangsari", "Weru"
-    ],
-    "tegal": ["Adiwerna", "Balapulang", "Bojong", "Bumijawa", "Dukuhturi", "Dukuhwaru", "Jatinegara", "Kedungbanteng", "Kramat", "Lebaksiu", "Margasari", "Pagerbarang", "Pangkah", "Slawi", "Surodadi", "Talang", "Tarub", "Warurejo"
-    ],
-    "temanggung": ["Bansari", "Bejen", "Bulu", "Candiroto", "Gemawang", "Jumo", "Kaloran", "Kandangan", "Kedu", "Kledung", "Kranggan", "Ngadirejo", "Parakan", "Pringsurat", "Selopampang", "Temanggung", "Tembarak", "Tlogomulyo", "Tretep", "Wonoboyo"
-    ],
-    "wonogiri": ["Batuwarno", "Bulukerto", "Eromoko", "Giritontro", "Giriwoyo", "Jatiroto", "Jatisrono", "Karangtengah", "Kismantoro", "Manyaran", "Ngadirojo", "Nguntoronadi", "Paranggupito", "Pracimantoro", "Puhpelem", "Purwantoro", "Selogiri", "Sidoharjo", "Tirtomoyo", "Wonogiri", "Wuryantoro"
-    ],
-    "wonosobo": ["Garung", "Kalibawang", "Kalikajar", "Kaliwiro", "Kejajar", "Kepil", "Kertek", "Leksono", "Mojotengah", "Sapuran", "Selomerto", "Sukoharjo", "Wadaslintang", "Watumalang", "Wonosobo"
-    ],
-    "kota magelang": ["Magelang Selatan", "Magelang Tengah", "Magelang Utara"
-    ],
-    "kota pekalongan": ["Pekalongan Barat", "Pekalongan Selatan", "Pekalongan Timur", "Pekalongan Utara"
-    ],
-    "kota salatiga": ["Argomulyo", "Sidomukti", "Sidorejo", "Tingkir"
-    ],
-    "kota semarang": ["Banyumanik", "Candisari", "Gajahmungkur", "Gayamsari", "Genuk", "Gunungpati", "Mijen", "Ngaliyan", "Pedurungan", "Semarang Barat", "Semarang Selatan", "Semarang Tengah", "Semarang Timur", "Semarang Utara", "Tembalang", "Tugu"
-    ],
-    "kota surakarta": ["Banjarsari", "Jebres", "Laweyan", "Pasar Kliwon", "Serengan"
-    ],
-    "kota tegal": ["Margadana", "Tegal Barat", "Tegal Selatan", "Tegal Timur"
-    ],
+            ],"pemalang": ["Ampelgading", "Bantarbolang", "Belik", "Bodeh", "Comal", "Moga", "Pemalang", "Petarukan", "Pulosari", "Randudongkal", "Taman", "Ulujami", "Warungpring", "Watukumpul"],
+            "purbalingga": ["Bojongsari", "Bukateja", "Kaligondang", "Kalimanah", "Karanganyar", "Karangjambu", "Karangmoncol", "Karangreja", "Kejobong", "Kemangkon", "Kertanegara", "Kutawis", "Mrebet", "Padamara", "Pengadegan", "Purbalingga", "Rembang"],
+            "purworejo": ["Bagelen", "Banyuurip", "Bayan", "Bener", "Bruno", "Butuh", "Gebang", "Grabag", "Kaligesing", "Kemiri", "Kutoarjo", "Loano", "Ngombol", "Pituruh", "Purwodadi", "Purworejo"],
+            "rembang": ["Bulu", "Gunem", "Kaliori", "Kragan", "Lasem", "Pamotan", "Pancur", "Rembang", "Sale", "Sarang", "Sedan", "Sluke", "Sulang", "Sumber"],
+            "semarang": ["Ambarawa", "Bancak", "Bandungan", "Banyubiru", "Bawen", "Bergas", "Bringin", "Getasan", "Jambu", "Kaliwungu", "Pabelan", "Pringapus", "Sumowono", "Suruh", "Susukan", "Tengaran", "Tuntang", "Ungaran Barat", "Ungaran Timur"],
+            "sragen": ["Gemolong", "Gesi", "Gondang", "Jenar", "Kalijambe", "Karangmalang", "Kedawung", "Masaran", "Miri", "Mondokan", "Ngrampal", "Plupuh", "Sambirejo", "Sambungmacan", "Sidoharjo", "Sragen", "Sukodono", "Tangen", "Tanon"],
+            "sukoharjo": ["Baki", "Bendosari", "Bulu", "Gatak", "Grogol", "Kartasura", "Mojolaban", "Nguter", "Polokarto", "Sukoharjo", "Tawangsari", "Weru"],
+            "tegal": ["Adiwerna", "Balapulang", "Bojong", "Bumijawa", "Dukuhturi", "Dukuhwaru", "Jatinegara", "Kedungbanteng", "Kramat", "Lebaksiu", "Margasari", "Pagerbarang", "Pangkah", "Slawi", "Surodadi", "Talang", "Tarub", "Warurejo"],
+            "temanggung": ["Bansari", "Bejen", "Bulu", "Candiroto", "Gemawang", "Jumo", "Kaloran", "Kandangan", "Kedu", "Kledung", "Kranggan", "Ngadirejo", "Parakan", "Pringsurat", "Selopampang", "Temanggung", "Tembarak", "Tlogomulyo", "Tretep", "Wonoboyo"],
+            "wonogiri": ["Batuwarno", "Bulukerto", "Eromoko", "Giritontro", "Giriwoyo", "Jatiroto", "Jatisrono", "Karangtengah", "Kismantoro", "Manyaran", "Ngadirojo", "Nguntoronadi", "Paranggupito", "Pracimantoro", "Puhpelem", "Purwantoro", "Selogiri", "Sidoharjo", "Tirtomoyo", "Wonogiri", "Wuryantoro"],
+    "wonosobo": ["Garung", "Kalibawang", "Kalikajar", "Kaliwiro", "Kejajar", "Kepil", "Kertek", "Leksono", "Mojotengah", "Sapuran", "Selomerto", "Sukoharjo", "Wadaslintang", "Watumalang", "Wonosobo"],
+    "kota magelang": ["Magelang Selatan", "Magelang Tengah", "Magelang Utara"],
+    "kota pekalongan": ["Pekalongan Barat", "Pekalongan Selatan", "Pekalongan Timur", "Pekalongan Utara"],
+    "kota salatiga": ["Argomulyo", "Sidomukti", "Sidorejo", "Tingkir"],
+    "kota semarang": ["Banyumanik", "Candisari", "Gajahmungkur", "Gayamsari", "Genuk", "Gunungpati", "Mijen", "Ngaliyan", "Pedurungan", "Semarang Barat", "Semarang Selatan", "Semarang Tengah", "Semarang Timur", "Semarang Utara", "Tembalang", "Tugu"],
+    "kota surakarta": ["Banjarsari", "Jebres", "Laweyan", "Pasar Kliwon", "Serengan"],
+    "kota tegal": ["Margadana", "Tegal Barat", "Tegal Selatan", "Tegal Timur"],
         };
 
         function updateCities() {
