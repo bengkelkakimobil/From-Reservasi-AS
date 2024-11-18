@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi Bengkel Mobil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f1f1f1;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .header {
+            position: relative;
+        }
+
+        .banner {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        h2 {
+            margin: 20px 0 10px;
+            font-size: 18px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #333;
+            text-align: left;
+        }
+
+        input, select, textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh64ddfu_5AXKrUoGlCrxUGr0ujaTO-KhU0G0P0hyphenhyphenZkVVBT5OQltXUZITGb2LizjCK6M3dq-WtC6TJas3LfRXJwH8k2L_G0iiDIWK2WxRagodX7EHQf8jZA0n2fQTeQ3PJWgy5JHqXGYj7qndzMK19s-X0mI-6DQTj9Y4EjEsCrhrwxdH-KYe21R_Of7LLG/s16000/Promo%20Shacking.jpg" alt="Shaking Machine" class="banner">
+            <div class="icons">
+                <span>🔒 Transaksi Aman</span>
+                <span>👍 Jaminan Kepuasan</span>
+            </div>
+        </div>
+        
+        <h2>Form Booking Online:</h2>
+        
+        <form id="reservation-form">
+            <label for="name">Nama Anda</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="whatsapp">No. WhatsApp Anda</label>
+            <input type="text" id="whatsapp" name="whatsapp" required>
+
+            <label for="province">Pilih Provinsi</label>
+            <select id="province" name="province" onchange="updateCities()" required>
+                <option value="">Pilih Provinsi</option>
+                <option value="jawa-tengah">Jawa Tengah</option>
+                <option value="jawa-barat">Jawa Barat</option>
+                <option value="jawa-timur">Jawa Timur</option>
+            </select>
+
+            <label for="city">Pilih Kota/Kabupaten</label>
+            <select id="city" name="city" required>
+                <option value="">Pilih Kota/Kabupaten</option>
+            </select>
+
+            <label for="subdistrict">Pilih Kecamatan</label>
+            <select id="subdistrict" name="subdistrict" required>
+                <option value="">Pilih Kecamatan</option>
+                <!-- Kecamtan bisa ditambahkan di sini sesuai dengan pilihan kota -->
+            </select>
+
+            <label for="car-type">Jenis Mobil</label>
+            <input type="text" id="car-type" name="car-type" required>
+
+            <label for="source">Sumber Informasi</label>
+            <select id="source" name="source">
+                <option value="">Pilih Sumber</option>
+                <option value="instagram">Instagram</option>
+                <option value="website">Website</option>
+                <option value="friend">Teman</option>
+                <option value="other">Lainnya</option>
+            </select>
+
+            <label for="complaint">Keluhan</label>
+            <textarea id="complaint" name="complaint" rows="3" placeholder="Tuliskan keluhan Anda..."></textarea>
+
+            <label for="visit-plan">Rencana Kedatangan</label>
+            <input type="date" id="visit-plan" name="visit-plan">
+
+            <button type="button" onclick="reserve()">Reservasi Sekarang!</button>
+        </form>
+    </div>
+
+    <script>
+        const citiesByProvince = {
+            "jawa-tengah": ["Banjarnegara", "Banyumas", "Batang", "Blora", "Boyolali", "Brebes", "Cilacap", "Demak", "Grobogan", "Jepara", "Karanganyar", "Kebumen", "Kendal", "Klaten", "Kudus", "Magelang", "Pati", "Pekalongan", "Pemalang", "Purbalingga", "Purworejo", "Rembang", "Semarang", "Sragen", "Sukoharjo", "Tegal", "Temanggung", "Wonogiri", "Wonosobo", "Kota Magelang", "Kota Pekalongan", "Kota Salatiga", "Kota Semarang", "Kota Surakarta", "Kota Tegal"],
+            "jawa-barat": ["Bandung", "Bandung Barat", "Bekasi", "Bogor", "Ciamis", "Cianjur", "Cirebon", "Garut", "Indramayu", "Karawang", "Kuningan", "Majalengka", "Pangandaran", "Purwakarta", "Subang", "Sukabumi", "Sumedang", "Tasikmalaya", "Kota Bandung", "Kota Banjar", "Kota Bekasi", "Kota Bogor", "Kota Cimahi", "Kota Cirebon", "Kota Depok", "Kota Sukabumi", "Kota Tasikmalaya"],
+            "jawa-timur": ["Bangkalan", "Banyuwangi", "Blitar", "Bojonegoro", "Bondowoso", "Gresik", "Jember", "Jombang", "Kediri", "Lamongan", "Lumajang", "Madiun", "Magetan", "Malang", "Mojokerto", "Nganjuk", "Ngawi", "Pacitan", "Pamekasan", "Pasuruan", "Ponorogo", "Probolinggo", "Sampang", "Sidoarjo", "Situbondo", "Sumenep", "Trenggalek", "Tuban", "Tulungagung", "Kota Batu", "Kota Blitar", "Kota Kediri", "Kota Madiun", "Kota Malang", "Kota Mojokerto", "Kota Pasuruan", "Kota Probolinggo", "Kota Surabaya"]
+        };
+
+        const subdistrictsByCity = {
+            "banyumas": ["Ajibarang","Banyumas","Baturraden","Cilongok","Gumelar","Jatilawang","Kalibagor","Karanglewas","Kebasen","Kedung Banteng","Kembaran","Kemranjen","Lumbir","Patikraja","Pekuncen","Purwojati","Purwokerto Barat","Purwokerto Selatan","Purwokerto Timur","Purwokerto Utara","Rawalo","Sokaraja","Somagede","Sumbang","Sumpiuh","Tambak","Wangon"],
+            // Tambahkan data kecamatan lainnya di sini
+            "banjarnegara": ["Banjarmangu","Banjarnegara","Batur","Bawang","Kalibening","Karangkobar","Madukara","Mandiraja","Pagedongan","Pagentan","Pandanarum","Pejawaran","Punggelan","Purwonegoro","Purworejo Klampok","Rakit","Sigaluh","Susukan","Wanadadi","Wanayasa"
+            ],
+            "batang" : ["Bandar","Banyuputih","Batang","Bawang","Blado","Gringsing","Kandeman","Limpung","Pecalungan","Reban","Subah","Tersono","Tulis","Warungasem","Wonotunggal"
+            ],             
+            "blora" :["Banjarejo","Blora kota","Bogorejo","Cepu","Japah","Jati","Jepon","Jiken","Kedungtuban","Kradenan","Kunduran","Ngawen","Randublatung","Sambong","Todanan","Tunjungan"
+            ],            
+            "boyolali" :["Ampel","Andong","Banyudono","Boyolali","Cepogo","Juwangi","Karanggede","Kemusu","Klego","Mojosongo","Musuk","Ngemplak","Nogosari","Sambi","Sawit","Selo","Simo","Teras","Wonosegoro"
+            ], 
+            "brebes" : ["Banjarharjo","Bantarkawung","Brebes","Bulakamba","Bumiayu","Jatibarang","Kersana","Ketanggungan","Larangan","Losari","Paguyangan","Salem","Sirampog","Songgom","Tanjung","Tonjong","Wanasari"
+            ], 
+            "cilacap" :["Adipala","Bantarsari","Binangun","Cilacap Selatan","Cilacap Tengah","Cilacap Utara","Cimanggu","Cipari","Dayeuhluhur","Gandrungmangu","Jeruklegi","Kampung Laut","Karangpucung","Kawunganten","Kedungreja","Kesugihan","Kroya","Majenang","Maos","Nusawungu","Patimuan","Sampang","Sidareja","Wanareja"
+            ],
+            "demak":["Bonang","Demak","Dempet","Gajah","Guntur","Karang Tengah","Karanganyar","Karangawen","Kebonagung","Mijen","Mranggen","Sayung","Wedung","Wonosalam"
+            ], 
+            "grobogan":["Brati","Gabus","Geyer","Godong","Grobogan","Gubug","Karangrayung","Kedungjati","Klambu","Kradenan","Ngaringan","Penawangan","Pulokulon","Purwodadi","Tanggungharjo","Tawangharjo","Tegowanu","Toroh","Wirosari"
+            ], 
+            "jepara": ["Bangsri", "Batealit", "Donorojo", "Jepara", "Kalinyamatan", "Karimunjawa", "Kedung", "Keling", "Kembang", "Mayong", "Mlonggo", "Nalumsari", "Pakis Aji", "Pecangaan", "Tahunan", "Welahan"
+            ],
+            "karanganyar": ["Colomadu", "Gondangrejo", "Jaten", "Jatipuro", "Jatiyoso", "Jenawi", "Jumantono", "Jumapolo", "Karanganyar", "Karangpandan", "Kebakkramat", "Matesih", "Mojogedang", "Ngargoyoso", "Tasikmadu", "Tawangmangu"
+            ],
+            "kebumen": ["Adimulyo", "Alian", "Ambal", "Ayah", "Bonorowo", "Buayan", "Buluspesantren", "Gombong", "Karanganyar", "Karanggayam", "Karangsambung", "Kebumen", "Klirong", "Kutowinangun", "Kuwarasan", "Mirit", "Padureso", "Pejagoan", "Petanahan", "Poncowarno", "Prembun", "Puring", "Rowokele", "Sadang", "Sempor", "Sruweng"
+            ],
+            "kendal": ["Boja", "Brangsong", "Cepiring", "Gemuh", "Kaliwungu", "Kaliwungu Selatan", "Kangkung", "Kendal", "Limbangan", "Ngampel", "Pageruyung", "Patean", "Patebon", "Pegandon", "Plantungan", "Ringinarum", "Rowosari", "Singorojo", "Sukorejo", "Weleri" 
+            ],
+            "klaten": ["Bayat", "Cawas", "Ceper", "Delanggu", "Gantiwarno", "Jatinom", "Jogonalan", "Kalikotes", "Karanganom", "Karangdowo", "Karangnongko", "Kebonarum", "Kemalang", "Klaten Selatan", "Klaten Tengah", "Klaten Utara", "Manisrenggo", "Ngawen", "Pedan", "Polanharjo", "Prambanan", "Trucuk", "Tulung", "Wedi"
+            ],
+            "kudus": ["Bae", "Dawe", "Gebog", "Jati", "Jekulo", "Kaliwungu", "Kudus", "Mejobo", "Undaan"
+            ],
+            "magelang": ["Bandongan", "Borobudur", "Candimulyo", "Dukun", "Grabag", "Kajoran", "Kaliangkrik", "Mertoyudan", "Mungkid", "Muntilan", "Ngablak", "Ngluwar", "Pakis", "Salam", "Salaman", "Sawangan", "Secang", "Srumbung", "Tegalrejo", "Tempuran", "Windusari"
+            ],
+            "pati": ["Batangan", "Cluwak", "Dukuhseti", "Gabus", "Gembong", "Gunungwungkal", "Jaken", "Jakenan", "Juwana", "Kayen", "Margorejo", "Margoyoso", "Pati", "Pucakwangi", "Sukolilo", "Tambakromo", "Tayu", "Tlogowungu", "Trangkil", "Wedarijaksa", "Winong"
+            ],
+            "pekalongan": ["Bojong", "Buaran", "Doro", "Kajen", "Karanganyar", "Karangdadap", "Kedungwuni", "Kesesi", "Lebakbarang", "Paninggaran", "Petungkriono", "Siwalan", "Sragi", "Talun", "Tirto", "Wiradesa", "Wonokerto", "Wonopringgo"
+            ],"pemalang": ["Ampelgading", "Bantarbolang", "Belik", "Bodeh", "Comal", "Moga", "Pemalang", "Petarukan", "Pulosari", "Randudongkal", "Taman", "Ulujami", "Warungpring", "Watukumpul"
+            ],
+            "purbalingga": ["Bojongsari", "Bukateja", "Kaligondang", "Kalimanah", "Karanganyar", "Karangjambu", "Karangmoncol", "Karangreja", "Kejobong", "Kemangkon", "Kertanegara", "Kutawis", "Mrebet", "Padamara", "Pengadegan", "Purbalingga", "Rembang"
+            ],
+            "purworejo": ["Bagelen", "Banyuurip", "Bayan", "Bener", "Bruno", "Butuh", "Gebang", "Grabag", "Kaligesing", "Kemiri", "Kutoarjo", "Loano", "Ngombol", "Pituruh", "Purwodadi", "Purworejo"
+            ],
+            "rembang": ["Bulu", "Gunem", "Kaliori", "Kragan", "Lasem", "Pamotan", "Pancur", "Rembang", "Sale", "Sarang", "Sedan", "Sluke", "Sulang", "Sumber"
+            ],
+            "semarang": ["Ambarawa", "Bancak", "Bandungan", "Banyubiru", "Bawen", "Bergas", "Bringin", "Getasan", "Jambu", "Kaliwungu", "Pabelan", "Pringapus", "Sumowono", "Suruh", "Susukan", "Tengaran", "Tuntang", "Ungaran Barat", "Ungaran Timur"
+            ],
+            "sragen": ["Gemolong", "Gesi", "Gondang", "Jenar", "Kalijambe", "Karangmalang", "Kedawung", "Masaran", "Miri", "Mondokan", "Ngrampal", "Plupuh", "Sambirejo", "Sambungmacan", "Sidoharjo", "Sragen", "Sukodono", "Tangen", "Tanon"
+    ],
+    "sukoharjo": ["Baki", "Bendosari", "Bulu", "Gatak", "Grogol", "Kartasura", "Mojolaban", "Nguter", "Polokarto", "Sukoharjo", "Tawangsari", "Weru"
+    ],
+    "tegal": ["Adiwerna", "Balapulang", "Bojong", "Bumijawa", "Dukuhturi", "Dukuhwaru", "Jatinegara", "Kedungbanteng", "Kramat", "Lebaksiu", "Margasari", "Pagerbarang", "Pangkah", "Slawi", "Surodadi", "Talang", "Tarub", "Warurejo"
+    ],
+    "temanggung": ["Bansari", "Bejen", "Bulu", "Candiroto", "Gemawang", "Jumo", "Kaloran", "Kandangan", "Kedu", "Kledung", "Kranggan", "Ngadirejo", "Parakan", "Pringsurat", "Selopampang", "Temanggung", "Tembarak", "Tlogomulyo", "Tretep", "Wonoboyo"
+    ],
+    "wonogiri": ["Batuwarno", "Bulukerto", "Eromoko", "Giritontro", "Giriwoyo", "Jatiroto", "Jatisrono", "Karangtengah", "Kismantoro", "Manyaran", "Ngadirojo", "Nguntoronadi", "Paranggupito", "Pracimantoro", "Puhpelem", "Purwantoro", "Selogiri", "Sidoharjo", "Tirtomoyo", "Wonogiri", "Wuryantoro"
+    ],
+    "wonosobo": ["Garung", "Kalibawang", "Kalikajar", "Kaliwiro", "Kejajar", "Kepil", "Kertek", "Leksono", "Mojotengah", "Sapuran", "Selomerto", "Sukoharjo", "Wadaslintang", "Watumalang", "Wonosobo"
+    ],
+    "kota magelang": ["Magelang Selatan", "Magelang Tengah", "Magelang Utara"
+    ],
+    "kota pekalongan": ["Pekalongan Barat", "Pekalongan Selatan", "Pekalongan Timur", "Pekalongan Utara"
+    ],
+    "kota salatiga": ["Argomulyo", "Sidomukti", "Sidorejo", "Tingkir"
+    ],
+    "kota semarang": ["Banyumanik", "Candisari", "Gajahmungkur", "Gayamsari", "Genuk", "Gunungpati", "Mijen", "Ngaliyan", "Pedurungan", "Semarang Barat", "Semarang Selatan", "Semarang Tengah", "Semarang Timur", "Semarang Utara", "Tembalang", "Tugu"
+    ],
+    "kota surakarta": ["Banjarsari", "Jebres", "Laweyan", "Pasar Kliwon", "Serengan"
+    ],
+    "kota tegal": ["Margadana", "Tegal Barat", "Tegal Selatan", "Tegal Timur"
+    ],
+        };
+
+        function updateCities() {
+            const provinceSelect = document.getElementById("province");
+            const citySelect = document.getElementById("city");
+            const selectedProvince = provinceSelect.value;
+
+            citySelect.innerHTML = '<option value="">Pilih Kota/Kabupaten</option>';
+
+            if (selectedProvince && citiesByProvince[selectedProvince]) {
+                citiesByProvince[selectedProvince].forEach(city => {
+                    const option = document.createElement("option");
+                    option.value = city.toLowerCase().replace(/\s/g, "-");
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            }
+        }
+
+        function updateSubdistricts() {
+            const citySelect = document.getElementById("city");
+            const subdistrictSelect = document.getElementById("subdistrict");
+            const selectedCity = citySelect.value;
+
+            subdistrictSelect.innerHTML = '<option value="">Pilih Kecamatan</option>';
+
+            if (selectedCity && subdistrictsByCity[selectedCity]) {
+                subdistrictsByCity[selectedCity].forEach(subdistrict => {
+                    const option = document.createElement("option");
+                    option.value = subdistrict.toLowerCase().replace(/\s/g, "-");
+                    option.textContent = subdistrict;
+                    subdistrictSelect.appendChild(option);
+                });
+            }
+        }
+
+        function reserve() {
+            const name = document.getElementById('name').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const province = document.getElementById('province').options[document.getElementById('province').selectedIndex].text;
+            const city = document.getElementById('city').options[document.getElementById('city').selectedIndex].text;
+            const subdistrict = document.getElementById('subdistrict').options[document.getElementById('subdistrict').selectedIndex].text;
+            const carType = document.getElementById('car-type').value;
+            const source = document.getElementById('source').value;
+            const complaint = document.getElementById('complaint').value;
+            const visitPlan = document.getElementById('visit-plan').value;
+
+            if (name && whatsapp && province && city && subdistrict && carType) {
+                const message = `Reservasi Bengkel Mobil:\n\n` +
+                                `Nama: ${name}\n` +
+                                `No. WhatsApp: ${whatsapp}\n` +
+                                `Provinsi: ${province}\n` +
+                                `Kota/Kabupaten: ${city}\n` +
+                                `Kecamatan: ${subdistrict}\n` +
+                                `Jenis Mobil: ${carType}\n` +
+                                `Sumber: ${source}\n` +
+                                `Keluhan: ${complaint}\n` +
+                                `Rencana Kedatangan: ${visitPlan}\n`;
+
+                const phoneNumber = "6285221486500";
+                const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(url, '_blank');
+            } else {
+                alert("Mohon lengkapi semua data.");
+            }
+        }
+
+        // Memperbarui kecamatan saat kota dipilih
+        document.getElementById("city").addEventListener("change", updateSubdistricts);
+    </script>
+</body>
+</html>
